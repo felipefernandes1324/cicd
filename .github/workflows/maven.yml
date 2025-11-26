@@ -32,17 +32,18 @@ jobs:
     - name: Subindo jar
       uses: actions/upload-artifact@v4
       with:
-        name: jar-artifact
-        path: target/
+        name: target-folder
+        path: ./target
   Clamscan:
 
     runs-on: ubuntu-latest
     needs: Buildando-jar
     steps:
-    - name: Download JAR artifact from build
+    - name: Download target folder from build
       uses: actions/download-artifact@v4
       with:
-        path: target/
+        name: target-folder
+        path: ./target
     - name: Instalando clamav para verificação do .jar
       run: |
         echo "Iniciando download"
@@ -60,11 +61,11 @@ jobs:
     container:
       image: aquasec/trivy:latest
     steps:
-      - name: Download JAR artifact from build job
+      - name: Download target folder from build job
         uses: actions/download-artifact@v4
         with:
-          name: jar-artifact
-          path: target/demo-0.0.1-SNAPSHOT.jar
+          name: target-folder
+          path: ./target
       - name: Scan JAR with Trivy
         run: trivy fs ./target/demo-0.0.1-SNAPSHOT.jar --severity CRITICAL
     
