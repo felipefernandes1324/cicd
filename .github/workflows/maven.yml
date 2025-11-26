@@ -52,6 +52,7 @@ jobs:
       run: |
         sudo freshclam
         echo "Iniciando verificação"
+        ls -l target/
         clamscan target/
   trivy-scan:
     runs-on: ubuntu-latest
