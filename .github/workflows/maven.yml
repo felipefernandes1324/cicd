@@ -32,7 +32,7 @@ jobs:
     - name: Verificação do pacote gerado
       run: |
         echo "Iniciando verificação"
-        sudo apt-get install clamav -y
+        apt-get install clamav -y
         freshclam
     
 
