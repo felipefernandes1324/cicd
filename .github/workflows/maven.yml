@@ -36,8 +36,8 @@ jobs:
         sudo systemctl stop clamav-freshclam.service
     - name: Executando verificação
       run: |
-        echo "Iniciando verificação"
         sudo freshclam
+        echo "Iniciando verificação"        
         clamscan target/demo-0.0.1-SNAPSHOT.jar
     
 
