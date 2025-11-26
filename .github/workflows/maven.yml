@@ -42,7 +42,7 @@ jobs:
     - name: Download JAR artifact from build
       uses: actions/download-artifact@v4
       with:
-        path: target/demo-0.0.1-SNAPSHOT.jar
+        path: target/
     - name: Instalando clamav para verificação do .jar
       run: |
         echo "Iniciando download"
