@@ -31,6 +31,7 @@ jobs:
       run: mvn -B package --file pom.xml
   Clamscan:
     runs-on: ubuntu-latest
+    needs: Buildando-jar
     steps:
     - name: Download JAR artifact from build
       uses: actions/download-artifact@v3
