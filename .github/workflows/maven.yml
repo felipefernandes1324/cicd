@@ -65,6 +65,6 @@ jobs:
           name: jar-artifact
           path: target/demo-0.0.1-SNAPSHOT.jar
       - name: Scan JAR with Trivy
-        run: trivy fs ./target/demo-0.0.1-SNAPSHOT.jar --critical
+        run: trivy fs ./target/demo-0.0.1-SNAPSHOT.jar --severity CRITICAL
     
 
