@@ -27,5 +27,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Buildando com Maven
       run: mvn -B package --file pom.xml
+    - name: Verificação do pacote gerado
+      run: |
+        echo "Iniciando verificação"
+        sudo apt-get install clamav -y
+        freshclam
+    
+
