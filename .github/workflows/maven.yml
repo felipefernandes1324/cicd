@@ -30,9 +30,13 @@ jobs:
     - name: Buildando com Maven
       run: mvn -B package --file pom.xml
   Clamscan:
+
     runs-on: ubuntu-latest
-    needs: Buildando-jar
     steps:
+    - name: Download JAR artifact from build
+      uses: actions/download-artifact@v4
+      with:
+        path: ./target
     - name: Instalando clamav para verificação do .jar
       run: |
         echo "Iniciando download"
@@ -45,10 +49,15 @@ jobs:
         clamscan target/demo-0.0.1-SNAPSHOT.jar
   trivy-scan:
     runs-on: ubuntu-latest
-    needs: Buildando-jar
+    needs: build
     container:
       image: aquasec/trivy:latest
     steps:
+      - name: Download JAR artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: jar-artifact
+          path: ./target
       - name: Scan JAR with Trivy
         run: trivy fs ./target/demo-0.0.1-SNAPSHOT.jar --critical
     
