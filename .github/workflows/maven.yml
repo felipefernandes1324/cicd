@@ -33,10 +33,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: Buildando-jar
     steps:
-    - name: Download JAR artifact from build
-      uses: actions/download-artifact@v3
-      with:
-        path: ./target
     - name: Instalando clamav para verificação do .jar
       run: |
         echo "Iniciando download"
