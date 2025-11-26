@@ -29,6 +29,11 @@ jobs:
         cache: maven
     - name: Buildando com Maven
       run: mvn -B package --file pom.xml
+    - name: Upload JAR artifact
+    - uses: actions/upload-artifact@v4
+      with:
+        name: jar-artifact
+        path: target/demo-0.0.1-SNAPSHOT.jar
   Clamscan:
 
     runs-on: ubuntu-latest
