@@ -47,7 +47,7 @@ jobs:
       run: |
         sudo freshclam
         echo "Iniciando verificação"
-        ls -l target/  
+        ls -l target/
         clamscan target/demo-0.0.1-SNAPSHOT.jar
   trivy-scan:
     runs-on: ubuntu-latest
