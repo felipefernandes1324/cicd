@@ -33,6 +33,7 @@ jobs:
       run: |
         echo "Iniciando download"
         sudo apt-get install clamav -y
+        sudo systemctl stop clamav-freshclam.service
     - name: Executando verificação
       run: |
         echo "Iniciando verificação"
