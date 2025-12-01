@@ -21,9 +21,9 @@ jobs:
 
     steps:
     - uses: felipefernandes1324/Workflows/.github/workflows/BuildBuildingJava17WithMaven.yaml@main
-    with:
-      image_name: teste-workflows
-      tag: $GITHUB_RUN_NUMBER
+      with:
+        image_name: teste-workflows
+        tag: $GITHUB_RUN_NUMBER
 
     
 
