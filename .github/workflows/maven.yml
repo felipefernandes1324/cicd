@@ -20,53 +20,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Buildando com Maven
-      run: mvn -B package --file pom.xml
-    - name: Subindo jar
-      uses: actions/upload-artifact@v4
-      with:
-        name: target-folder
-        path: ./target
-  Clamscan:
+    - uses: felipefernandes1324/Workflows/.github/workflows/BuildBuildingJava17WithMaven.yaml@main
+    with:
+      image_name: teste-workflows
+      tag: $GITHUB_RUN_NUMBER
 
-    runs-on: ubuntu-latest
-    needs: Buildando-jar
-    steps:
-    - name: Download target folder from build
-      uses: actions/download-artifact@v4
-      with:
-        name: target-folder
-        path: ./target
-    - name: Instalando clamav para verificação do .jar
-      run: |
-        echo "Iniciando download"
-        sudo apt-get install clamav -y
-        sudo systemctl stop clamav-freshclam.service
-    - name: Executando verificação
-      run: |
-        sudo freshclam
-        echo "Iniciando verificação"
-        ls -l target/
-        clamscan target/
-  trivy-scan:
-    runs-on: ubuntu-latest
-    needs: Clamscan
-    container:
-      image: aquasec/trivy:latest
-    steps:
-      - name: Download target folder from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: target-folder
-          path: ./target
-      - name: Scan JAR with Trivy
-        run: trivy fs ./target/demo-0.0.1-SNAPSHOT.jar --severity CRITICAL
     
 
