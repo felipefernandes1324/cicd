@@ -15,8 +15,16 @@ on:
     branches: [ "main" ]
 
 jobs:
+  do-it:
     runs-on: ubuntu-latest
-    Buildando-jar:
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run a one-line script
+      run: echo "Hello world!"
+
+  Build-jar:
       uses: felipefernandes1324/Workflows/.github/workflows/BuildingJava17WithMaven.yaml.yaml@main
       with:
         image_name: teste-workflows
