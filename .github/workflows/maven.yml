@@ -15,9 +15,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-    runs-on: ubuntu-latest
+
     Buildando-jar:
-      uses: felipefernandes1324/Workflows/.github/workflows/BuildBuildingJava17WithMaven.yaml@main
+      uses: felipefernandes1324/Workflows/.github/workflows/BuildingJava17WithMaven.yaml.yaml@main
       with:
         image_name: teste-workflows
         tag: $GITHUB_RUN_NUMBER
