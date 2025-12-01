@@ -18,8 +18,6 @@ jobs:
     - name: Subindo jar
       uses: actions/upload-artifact@v4
       with:
-        name: jar-artifact
-        path: target/
         name: target-folder
         path: ./target
   Clamscan:
