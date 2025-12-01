@@ -14,7 +14,7 @@ jobs:
       run: echo "Hello world!"
 
   Build-jar:
-      uses: felipefernandes1324/Workflows/BuildingJava17WithMaven.yml@main
+      uses: felipefernandes1324/Workflows/.github/workflows/BuildingJava17WithMaven.yml@main
       with:
         image_name: teste-pipeline
         tag: $GITHUB_RUN_NUMBER
