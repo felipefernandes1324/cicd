@@ -15,6 +15,7 @@ on:
     branches: [ "main" ]
 
 jobs:
+    runs-on: ubuntu-latest
     Buildando-jar:
       uses: felipefernandes1324/Workflows/.github/workflows/BuildBuildingJava17WithMaven.yaml@main
       with:
