@@ -7,12 +7,6 @@ jobs:
   do-it:
     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Run a one-line script
-      run: echo "Hello world!"
-
   Build-jar:
       uses: felipefernandes1324/Workflows/.github/workflows/BuildingJava17WithMaven.yml@main
       with:
