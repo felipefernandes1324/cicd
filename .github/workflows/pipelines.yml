@@ -6,6 +6,8 @@ on:
 jobs:
   do-it:
     runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
 
   Build-jar:
       uses: felipefernandes1324/Workflows/.github/workflows/BuildingJava17WithMaven.yml@main
