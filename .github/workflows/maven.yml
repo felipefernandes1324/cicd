@@ -18,3 +18,4 @@ jobs:
       with:
         image_name: teste-pipeline
         tag: $GITHUB_RUN_NUMBER
+        
