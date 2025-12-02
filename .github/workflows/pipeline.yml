@@ -76,8 +76,6 @@ jobs:
     steps:
       - name: Instalando Docker
         run: |
-          echo "Instalando docker"
-          sudo apt update
           sudo apt-get install docker
       - name: Baixando jar para build no docker
         uses: actions/download-artifact@v4
