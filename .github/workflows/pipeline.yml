@@ -74,9 +74,6 @@ jobs:
     container:
       image: alpine:3.21
     steps:
-      - name: Instalando Docker
-        run: |
-          apt-get install docker
       - name: Baixando jar para build no docker
         uses: actions/download-artifact@v4
         with:
