@@ -83,9 +83,7 @@ jobs:
 
       - name: Start Docker
         run: sudo service docker start
-        with:
-          name: target-folder
-          path: ./target
+        
       - name: Buildando imagem no docker
         run: docker build -t teste:1 .
       
