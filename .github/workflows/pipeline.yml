@@ -101,8 +101,7 @@ jobs:
             .
           docker push 632469639057.dkr.ecr.sa-east-1.amazonaws.com/teste-deploy:${{ github.run_number }}
           docker push 632469639057.dkr.ecr.sa-east-1.amazonaws.com/teste-deploy:latest
-            - name: Parar container antigo (se existir)
-      - name: Parando instância do docker
+      - name: Parar container antigo
         run: |
           docker stop teste-deploy || true
           docker rm teste-deploy || true
