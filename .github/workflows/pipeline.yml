@@ -104,7 +104,7 @@ jobs:
 
   Build-Push-EC2:
     runs-on: self-hosted
-    needs: trivy-scan
+    needs: Build-Push-ECR
 
     steps:
         - name: Configure AWS credentials
