@@ -101,8 +101,13 @@ jobs:
             .
           docker push 632469639057.dkr.ecr.sa-east-1.amazonaws.com/teste-deploy:${{ github.run_number }}
           docker push 632469639057.dkr.ecr.sa-east-1.amazonaws.com/teste-deploy:latest
+            - name: Parar container antigo (se existir)
+      - name: Parando instância do docker
+        run: |
+          docker stop teste-deploy || true
+          docker rm teste-deploy || true
       - name: Buildando na EC2
         run: |
-          docker build --build-arg i-09affc67bb067d999=$(i-07842c7370889128a) -t teste-deploy:${{ github.run_number }} . \
+           docker run -d --name teste-deploy -p 8080:8080 teste-deploy:${{ github.run_number }}
 
 
