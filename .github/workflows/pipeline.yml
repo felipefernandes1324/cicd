@@ -141,5 +141,5 @@ jobs:
             INSTANCE_ID_APP: ${{ secrets.INSTANCE_ID_APP }}
         - name: Deploy index.html para S3
           run: |
-            aws s3 cp index.html s3://meu-site-bucket/index.html --acl public-read
+            aws s3 cp index.html s3://endpoint-returning-200/index.html --acl public-read
 
