@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Check</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    #result { margin-top: 20px; white-space: pre-wrap; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <h1>Teste de Status</h1>
+  <p>Clique no botão para testar o endpoint <code>/status</code> da API.</p>
+
+  <!-- Ajuste a URL abaixo para o host/IP correto da sua EC2 -->
+  <button onclick="testStatus()">Testar /status</button>
+
+  <div id="result"></div>
+
+  <script>
+    async function testStatus() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.textContent = 'Chamando /status...';
+
+      try {
+        const response = await fetch('http:///status', {
+          method: 'GET'
+        });
+
+        if (response.ok) {
+          // ResponseEntity<Void> => status 200, corpo vazio
+          resultDiv.textContent =
+            'Status HTTP: ' + response.status + ' (OK)\n' +
+            'Corpo: <vazio – health check OK>';
+        } else {
+          resultDiv.textContent =
+            'Falha no /status. HTTP: ' + response.status;
+        }
+      } catch (error) {
+        resultDiv.textContent = 'Erro ao chamar /status:\n' + error;
+      }
+    }
+  </script>
+</body>
+</html>
