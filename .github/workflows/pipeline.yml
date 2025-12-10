@@ -136,7 +136,7 @@ jobs:
               }' \
               --max-concurrency "1" \
               --max-errors "0" \
-              --region sa-east-1
+              --region sa-east-1 
           env:
             INSTANCE_ID_APP: ${{ secrets.INSTANCE_ID_APP }}
         - name: Deploy index.html para S3
